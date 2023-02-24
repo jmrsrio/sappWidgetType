@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import {
-  ChakraProvider,
-} from "@chakra-ui/react";
+import App from './widgets/List';
+
 
 const appendWIdget = ()=>{
   console.log('window is loaded, initiating sapp widget');
   const root = ReactDOM.createRoot(document.getElementById('sapp-widget-root'));
   root.render(
-    <ChakraProvider>
       <App />
-    </ChakraProvider>
   );
 }
 
