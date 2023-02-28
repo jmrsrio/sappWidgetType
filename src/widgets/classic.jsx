@@ -39,7 +39,7 @@ function Classic({ product, formId }) {
               backgroundColor="#E6F5FF"
             >
               <Text fontWeight="bold"> Subscribe and save</Text>
-              <Box padding="10px 20px">
+              <Box padding="10px 0px">
                 <Text paddingBottom="15px">Delivery Frequency</Text>
                 <Select
                   border="1px solid #C0C0C0"
@@ -47,11 +47,11 @@ function Classic({ product, formId }) {
                   value={selectedValue}
                   onChange={handleSelectChange}
                   h="30px"
-                  size='md'
+                 fontSize="15px"
                 >
                   {product.selling_plan_groups[0].selling_plans.map(
                     (selling_plan, idx) => (
-                      <option key={idx} value={`${selling_plan.name}`} fontSize="15px">
+                      <option key={idx} value={`${selling_plan.name}`}>
                         {" "}
                         <input
                           type="hidden"
