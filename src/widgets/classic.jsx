@@ -47,11 +47,11 @@ function Classic({ product, formId }) {
                   value={selectedValue}
                   onChange={handleSelectChange}
                   h="30px"
-                  fontSize="12px"
+                  size='md'
                 >
                   {product.selling_plan_groups[0].selling_plans.map(
                     (selling_plan, idx) => (
-                      <option key={idx} value={`${selling_plan.name}`}>
+                      <option key={idx} value={`${selling_plan.name}`} fontSize="15px">
                         {" "}
                         <input
                           type="hidden"

@@ -1,8 +1,6 @@
 import Classic from "./classic";
 import Compact from "./compact";
-import {
-  ChakraProvider,
-} from "@chakra-ui/react";
+
 function App() {
   let sappConfig = localStorage.getItem("sappConfig");
   let sappConfigP = JSON.parse(sappConfig);
@@ -17,13 +15,7 @@ function App() {
       <Compact product={product} formId={formId} />
     );
 
-  return product.selling_plan_groups.length ? (
-    <ChakraProvider>
-      <> {widgetList}</>
-    </ChakraProvider>
-  ) : (
-    ""
-  );
+  return product.selling_plan_groups.length ? <> {widgetList}</> : "";
 }
 
 export default App;
