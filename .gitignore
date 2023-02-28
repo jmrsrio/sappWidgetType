@@ -8,7 +8,7 @@
 /public
 # testing
 /coverage
-
+src
 # production
 /build
 
