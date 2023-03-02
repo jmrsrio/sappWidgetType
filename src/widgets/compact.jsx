@@ -3,19 +3,22 @@ import {  useEffect, useState } from "react";
 function Compact({ product, formId }) {
   const [isSelected, setIsSelected] = useState("");
   const [isbackgroundColor , setIsBackgroundColor] =  useState ("")
-  const addToCartButton = document.querySelector('[name="add"]');
 
   useEffect(() => {
+    const addToCartButton = document.querySelector('[name="add"]');
+    console.log("🚀 ~ file: compact.jsx:11 ~ //useEffect ~ backgroundColor:", addToCartButton)
+
   if (addToCartButton) {
     const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
-    console.log("🚀 ~ file: compact.jsx:11 ~ //useEffect ~ backgroundColor:", backgroundColor)
-    
+    console.log("🚀 ~ file: compact.jsx:11 ~ //useEffect ~ backgroundColor:", backgroundColor,isbackgroundColor)
+  
     setIsBackgroundColor(backgroundColor)
   }
-  }, [addToCartButton]);
+  // eslint-disable-next-line
+  }, []);
   
   const selectedStyle = {
-    border: `2px solid ${isbackgroundColor}`,
+    border: `2px solid red`,
     fontSize: "12px!important",
     transform: "scale(1.1)",
     transition: "0.2s all ease",
