@@ -3,12 +3,12 @@ import {  useState } from "react";
 function Compact({ product, formId }) {
   const [isSelected, setIsSelected] = useState("");
   // const [isbackgroundColor , setIsBackgroundColor] =  useState ("")
-  const addToCartButton = document.querySelector('[name="add"]');
+  // const addToCartButton = document.querySelector('[name="add"]');
 
   // useEffect(() => {
   // if (addToCartButton) {
-    const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
-    console.log("🚀 ~ file: compact.jsx:11 ~ //useEffect ~ backgroundColor:", backgroundColor)
+    // const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
+    // console.log("🚀 ~ file: compact.jsx:11 ~ //useEffect ~ backgroundColor:", backgroundColor)
     
     // setIsBackgroundColor(backgroundColor)
   // }
@@ -30,7 +30,7 @@ function Compact({ product, formId }) {
         <Text fontSize="16" fontWeight="bold" padding="15px 0">
           Purchase Options
         </Text>
-        <Text>{backgroundColor}</Text>
+        {/* <Text>{backgroundColor}</Text> */}
         <Box>
           {product.selling_plan_groups[0].selling_plans.length && (
             <Card
