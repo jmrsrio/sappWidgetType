@@ -4,15 +4,14 @@ function Classic({ product, formId }) {
   const [selectedValue, setSelectedValue] = useState("");
   const [checked, setChecked] = useState(false);
   const [isbackgroundColor , setIsBackgroundColor] =  useState ("")
+  const addToCartButton = document.querySelector('[name="add"]');
 
   useEffect(() => {
-    const addToCartButton = document.querySelector('[name="add"]');
-
   if (addToCartButton) {
     const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
     setIsBackgroundColor(backgroundColor)
   }
-  }, []);
+  }, [addToCartButton]);
 
   const onHandleClick = () => {
     setChecked(!checked);

@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 function Compact({ product, formId }) {
   const [isSelected, setIsSelected] = useState("");
   const [isbackgroundColor , setIsBackgroundColor] =  useState ("")
-  useEffect(() => {
-    const addToCartButton = document.querySelector('[name="add"]');
+  const addToCartButton = document.querySelector('[name="add"]');
 
+  useEffect(() => {
   if (addToCartButton) {
     const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
     setIsBackgroundColor(backgroundColor)
   }
-  }, []);
+  }, [addToCartButton]);
   
   const selectedStyle = {
     border: `2px solid ${isbackgroundColor}`,
