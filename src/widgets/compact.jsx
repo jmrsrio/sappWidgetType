@@ -18,7 +18,7 @@ function Compact({ product, formId }) {
   }, []);
   
   const selectedStyle = {
-    border: `2px solid red`,
+    border: `2px solid ${isbackgroundColor}`,
     fontSize: "12px!important",
     transform: "scale(1.1)",
     transition: "0.2s all ease",
