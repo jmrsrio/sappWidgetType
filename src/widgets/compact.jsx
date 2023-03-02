@@ -1,5 +1,5 @@
 import { Box, Card, CardBody, SimpleGrid, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 function Compact({ product, formId }) {
   const [isSelected, setIsSelected] = useState("");
   // const [isbackgroundColor , setIsBackgroundColor] =  useState ("")
@@ -8,6 +8,8 @@ function Compact({ product, formId }) {
   // useEffect(() => {
   // if (addToCartButton) {
     const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
+    console.log("🚀 ~ file: compact.jsx:11 ~ //useEffect ~ backgroundColor:", backgroundColor)
+    
     // setIsBackgroundColor(backgroundColor)
   // }
   // }, [addToCartButton]);

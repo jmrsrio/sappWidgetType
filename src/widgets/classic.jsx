@@ -1,5 +1,5 @@
 import { Box, Card, Radio, Select, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 function Classic({ product, formId }) {
   const [selectedValue, setSelectedValue] = useState("");
   const [checked, setChecked] = useState(false);
