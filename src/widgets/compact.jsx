@@ -2,9 +2,16 @@ import { Box, Card, CardBody, SimpleGrid, Text } from "@chakra-ui/react";
 import { useState } from "react";
 function Compact({ product, formId }) {
   const [isSelected, setIsSelected] = useState("");
+  const [isbackgroundColor , setIsBackgroundColor] =  useState ("")
+  const addToCartButton = document.querySelector('[name="add"]');
 
+  if (addToCartButton) {
+    const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
+    setIsBackgroundColor(backgroundColor)
+  }
+  
   const selectedStyle = {
-    border: "2px solid #0289E5",
+    border: `2px solid ${isbackgroundColor}`,
     fontSize: "12px!important",
     transform: "scale(1.1)",
     transition: "0.2s all ease",
@@ -23,7 +30,7 @@ function Compact({ product, formId }) {
           {product.selling_plan_groups[0].selling_plans.length && (
             <Card
               border="1px solid #C0C0C0"
-              backgroundColor="#E6F5FF"
+              backgroundColor="transparent"
               marginTop="0!important"
               padding="15px"
             >
@@ -48,9 +55,9 @@ function Compact({ product, formId }) {
                     </CardBody>
                   </Card>
                   {product.selling_plan_groups[0].selling_plans.map(
-                    (selling_plan, idx) => (
+                    (selling_plan) => (
                       <Card
-                        key={idx}
+                        key={selling_plan.name}
                         onClick={() => handleClick(selling_plan.name)}
                         cursor="pointer"
                         sx={
