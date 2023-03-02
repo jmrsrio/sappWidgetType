@@ -3,15 +3,14 @@ import { useEffect, useState } from "react";
 function Classic({ product, formId }) {
   const [selectedValue, setSelectedValue] = useState("");
   const [checked, setChecked] = useState(false);
-  const [isbackgroundColor , setIsBackgroundColor] =  useState ("")
-  const addToCartButton = document.querySelector('[name="add"]');
+  // const [isbackgroundColor , setIsBackgroundColor] =  useState ("")
+  // const addToCartButton = document.querySelector('[name="add"]');
 
-  useEffect(() => {
-  if (addToCartButton) {
-    const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
-    setIsBackgroundColor(backgroundColor)
-  }
-  }, [addToCartButton]);
+  // useEffect(() => {
+  // if (addToCartButton) {
+    // const backgroundColor = getComputedStyle(addToCartButton).backgroundColor;
+  // }
+  // }, [addToCartButton]);
 
   const onHandleClick = () => {
     setChecked(!checked);
@@ -36,7 +35,7 @@ function Classic({ product, formId }) {
               value="one_time_purchase"
               isChecked={checked}
               onClick={() => onHandleClick("one_time_purchase")}
-              colorScheme={isbackgroundColor}
+              // colorScheme={isbackgroundColor}
               size="lg"
             >
               <Text fontSize="16px"> One Time Purchase</Text>
@@ -58,7 +57,7 @@ function Classic({ product, formId }) {
                   onChange={handleSelectChange}
                   h="30px"
                  fontSize="15px"
-                 focusBorderColor={isbackgroundColor}
+                //  focusBorderColor={isbackgroundColor}
                  variant="filled"
                 >
                   {product.selling_plan_groups[0].selling_plans.map(
