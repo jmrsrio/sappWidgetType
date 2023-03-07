@@ -1,4 +1,5 @@
-import Classic from "./classic";
+// import Classic from "./classic";
+import Classics from "./classics";
 import Compact from "./compact";
 
 function App() {
@@ -9,10 +10,10 @@ function App() {
   let widgetType = sappConfigP.widgetType;
   let formId = localStorage.getItem("formELementId");
   let widgetList =
-    String(widgetType) === "Classic" ? (
-      <Classic product={product} formId={formId} />
-    ) : (
+    String(widgetType) === "Compact" ? (
       <Compact product={product} formId={formId} />
+    ) : (
+      <Classics product={product} formId={formId} />
     );
 
   return product.selling_plan_groups.length ? <> {widgetList}</> : "";
