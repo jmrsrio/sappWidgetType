@@ -1,6 +1,6 @@
 // import Classic from "./classic";
 import Classics from "./classics";
-import Compact from "./compact";
+import Compacts from "./compacts";
 
 function App() {
   let sappConfig = localStorage.getItem("sappConfig");
@@ -11,7 +11,7 @@ function App() {
   let formId = localStorage.getItem("formELementId");
   let widgetList =
     String(widgetType) === "Compact" ? (
-      <Compact product={product} formId={formId} />
+      <Compacts product={product} formId={formId} />
     ) : (
       <Classics product={product} formId={formId} />
     );
