@@ -1,9 +1,8 @@
-import { Box, Card, CardBody, SimpleGrid, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-function Compact({ product, formId }) {
-  const [isSelected, setIsSelected] = useState("");
-  const [isbackgroundColor, setIsBackgroundColor] = useState("");
 
+function Compact({ product, formId }) {
+  const [isSelected, setIsSelected] = useState("Just Once");
+  const [isbackgroundColor, setIsBackgroundColor] = useState("");
   useEffect(() => {
     const addToCartButton = document.querySelector('[name="add"]');
     if (addToCartButton) {
@@ -24,75 +23,51 @@ function Compact({ product, formId }) {
     setIsSelected(selling_plan);
   };
   return (
-    product.selling_plan_groups && (
-      <Box className="formContainer">
-        <Text fontSize="16" fontWeight="bold" padding="15px 0">
-          Purchase Options
-        </Text>
-        {/* <Text>{backgroundColor}</Text> */}
-        <Box>
-          {product.selling_plan_groups[0].selling_plans.length && (
-            <Card
-              border="1px solid #C0C0C0"
-              backgroundColor="transparent"
-              marginTop="0!important"
-              padding="15px"
-            >
-              <Box padding="10px 20px">
-                <Text>Renews every :</Text>
-                <SimpleGrid
-                  spacing={4}
-                  templateColumns="repeat(auto-fill, minmax(105px, 1fr))"
-                  mt="10px"
-                >
-                  <Card
-                    onClick={() => handleClick("Just Once")}
-                    sx={isSelected === "Just Once" ? selectedStyle : ""}
+    product.selling_plan_groups.length && (
+      <div className="formContainer">
+        <h3 className="title">Purchase Options :</h3>
+        <div>
+          <div className="card">
+            <div className="options">
+              <div
+                className="option"
+                style={isSelected === "Just Once" ? selectedStyle : {}}
+                onClick={() => handleClick("Just Once")}
+              >
+                <p className="optionText">Just once</p>
+                <p className="optionText">Full price</p>
+              </div>
+              {product.selling_plan_groups.map((group) =>
+                group.selling_plans.map((selling_plan) => (
+                  <div
+                    key={selling_plan.name}
+                    className="option"
+                    style={
+                      isSelected === selling_plan.name ? selectedStyle : {}
+                    }
+                    onClick={() => handleClick(selling_plan.name)}
+                    id={`selling_plan_${selling_plan.id}`}
                   >
-                    <CardBody p="10px">
-                      <Text fontSize="12px" textAlign="center">
-                        Just Once{" "}
-                      </Text>
-                      <Text fontSize="12px" textAlign="center">
-                        Full price
-                      </Text>
-                    </CardBody>
-                  </Card>
-                  {product.selling_plan_groups[0].selling_plans.map(
-                    (selling_plan) => (
-                      <Card
-                        key={selling_plan.name}
-                        onClick={() => handleClick(selling_plan.name)}
-                        cursor="pointer"
-                        sx={
-                          isSelected === selling_plan.name ? selectedStyle : ""
-                        }
-                        id={`selling_plan_${selling_plan.id}`}
-                      >
-                        <CardBody p="10px" justifyContent="center">
-                          <input
-                            type="hidden"
-                            name="selling_plan"
-                            className="selling_plan_radio_button"
-                            id={`selling_plan_${selling_plan.id}`}
-                            value={`${selling_plan.id}`}
-                            form={
-                              String(isSelected) === String(selling_plan.name)
-                                ? formId
-                                : ""
-                            }
-                          ></input>
-                          <Text fontSize="12px">{selling_plan.name}</Text>
-                        </CardBody>
-                      </Card>
-                    )
-                  )}
-                </SimpleGrid>
-              </Box>
-            </Card>
-          )}
-        </Box>
-      </Box>
+                    <input
+                      type="hidden"
+                      name="selling_plan"
+                      className="selling_plan_radio_button"
+                      id={`selling_plan_${selling_plan.id}`}
+                      value={`${selling_plan.id}`}
+                      form={
+                        String(isSelected) === String(selling_plan.name)
+                          ? formId
+                          : ""
+                      }
+                    ></input>
+                    <p className="optionText-name">{selling_plan.name}</p>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     )
   );
 }
